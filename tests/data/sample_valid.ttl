@@ -1,0 +1,73 @@
+@prefix maple: <https://example.org/maple#> .
+@prefix mid:   <https://example.org/maple/id/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix mid_boss: <https://example.org/maple/id/boss/> .
+@prefix mid_event: <https://example.org/maple/id/event/> .
+@prefix mid_fact: <https://example.org/maple/id/fact/> .
+@prefix mid_interval: <https://example.org/maple/id/interval/> .
+@prefix mid_item: <https://example.org/maple/id/item/> .
+@prefix mid_job: <https://example.org/maple/id/job/> .
+@prefix mid_patch: <https://example.org/maple/id/patch/> .
+@prefix mid_prob: <https://example.org/maple/id/prob/> .
+@prefix mid_skill: <https://example.org/maple/id/skill/> .
+@prefix mid_source: <https://example.org/maple/id/source/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# 스키마 검증용 가상 샘플 (실제 게임 데이터가 아님 — 값은 예시)
+
+mid_source:demo-patch-1 a maple:SourceDocument ;
+    maple:url "https://example.org/demo/patchnote/1"^^xsd:anyURI ;
+    maple:sourceTier maple:official ;
+    prov:generatedAtTime "2026-11-10T09:00:00+09:00"^^xsd:dateTime .
+
+mid_patch:2026-01-01-demo a maple:Patch ;
+    rdfs:label "데모 패치"@ko ;
+    maple:patchDate "2026-01-01"^^xsd:date ;
+    maple:patchVersion "2026-01-01-demo" ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ;
+    maple:sourceTier maple:official .
+
+mid_job:demo-warrior a maple:Job ;
+    rdfs:label "데모전사"@ko ; skos:altLabel "데전"@ko , "DemoWarrior"@en ;
+    maple:hasSkill mid_skill:demo-slash ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official .
+
+mid_skill:demo-slash a maple:Skill ;
+    rdfs:label "데모베기"@ko ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official .
+
+# 패치 변경: 데모베기 데미지 100 -> 120 (버프)
+mid_fact:chg-1 a maple:PatchChange ;
+    rdf:subject mid_skill:demo-slash ; rdf:predicate maple:level ;
+    maple:changes mid_skill:demo-slash ; maple:changeType maple:Buff ;
+    maple:attribute "damage_percent" ; maple:beforeValue 100 ; maple:afterValue 120 ;
+    maple:value 120 ; maple:inPatch mid_patch:2026-01-01-demo ;
+    maple:validFrom "2026-01-01"^^xsd:date ;
+    maple:extractedBy "llm" ; maple:evidence "데모베기의 데미지가 100%에서 120%로 증가했습니다." ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official ;
+    prov:generatedAtTime "2026-11-10T09:05:00+09:00"^^xsd:dateTime .
+mid_patch:2026-01-01-demo maple:hasChange mid_fact:chg-1 .
+
+mid_boss:demo-boss a maple:Boss ;
+    rdfs:label "데모보스"@ko ; maple:difficulty "노멀" ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official .
+
+mid_event:demo-event a maple:Event ;
+    rdfs:label "데모 이벤트"@ko ; maple:during mid_interval:demo-event ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official .
+mid_interval:demo-event a maple:TimeInterval ;
+    maple:startDate "2026-01-01T00:00:00+09:00"^^xsd:dateTime ;
+    maple:endDate   "2026-01-31T23:59:59+09:00"^^xsd:dateTime .
+
+mid_item:demo-sword a maple:Equipment ;
+    rdfs:label "데모검"@ko ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official .
+
+mid_prob:demo-sf-17 a maple:StarforceProbability ;
+    rdfs:label "데모검 17성 성공"@ko ;
+    maple:probabilityFor mid_item:demo-sword ; maple:starLevel 17 ;
+    maple:outcome "성공" ; maple:probability 0.30 ;
+    prov:wasDerivedFrom mid_source:demo-patch-1 ; maple:sourceTier maple:official .

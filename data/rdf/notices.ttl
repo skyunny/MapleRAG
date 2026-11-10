@@ -1,0 +1,593 @@
+@prefix maple: <https://example.org/maple#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/maple/id/event/1334> a maple:Event ;
+    rdfs:label "VIP 사우나"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/94bfdc0b0d95> ;
+    maple:during <https://example.org/maple/id/interval/event-1334> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1381> a maple:Event ;
+    rdfs:label "퍼스널 코인샵"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/6631b39bd97f> ;
+    maple:during <https://example.org/maple/id/interval/event-1381> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1382> a maple:Event ;
+    rdfs:label "[이벤트 샵] - 아르고 주화 상점"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/e751c6dfd488> ;
+    maple:during <https://example.org/maple/id/interval/event-1382> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1383> a maple:Event ;
+    rdfs:label "[이벤트 스킬] - 아르고 호의 가호"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/59d1dbce6780> ;
+    maple:during <https://example.org/maple/id/interval/event-1383> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1384> a maple:Event ;
+    rdfs:label "하이퍼 버닝 부스터를 드려요!"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/521ce8743c57> ;
+    maple:during <https://example.org/maple/id/interval/event-1384> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1387> a maple:Event ;
+    rdfs:label "[성장 이벤트] - 어센던트 링크"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/31f58f10b9aa> ;
+    maple:during <https://example.org/maple/id/interval/event-1387> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1388> a maple:Event ;
+    rdfs:label "[출석 이벤트] - 프로텍트 아르고"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/6a5ec55c839f> ;
+    maple:during <https://example.org/maple/id/interval/event-1388> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1389> a maple:Event ;
+    rdfs:label "퍼스널 버닝"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/1ff3d462959b> ;
+    maple:during <https://example.org/maple/id/interval/event-1389> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1398> a maple:Event ;
+    rdfs:label "제 2회 금손 어워즈"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/ac995ee3581c> ;
+    maple:during <https://example.org/maple/id/interval/event-1398> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1400> a maple:Event ;
+    rdfs:label "프리미엄PC방 접속보상 이벤트"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/595f890aaca5> ;
+    maple:during <https://example.org/maple/id/interval/event-1400> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1402> a maple:Event ;
+    rdfs:label "모멘텀 패스 PLUS"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/8e85c344e22f> ;
+    maple:during <https://example.org/maple/id/interval/event-1402> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1403> a maple:Event ;
+    rdfs:label "[사냥 이벤트] - 탐정 예티의 수상한 돋보기"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/265903910212> ;
+    maple:during <https://example.org/maple/id/interval/event-1403> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/event/1404> a maple:Event ;
+    rdfs:label "메이플 이스케이프: 사라진 네미"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/79f733dbcaa7> ;
+    maple:during <https://example.org/maple/id/interval/event-1404> ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/796> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.411(4) 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/0fb9e14440c5> ;
+    maple:patchDate "2026-01-20"^^xsd:date ;
+    maple:patchVersion "1.2.411(4)" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/797> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.412 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/ae9b646f6d3e> ;
+    maple:patchDate "2026-02-12"^^xsd:date ;
+    maple:patchVersion "1.2.412" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/798> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.413 업데이트 안내 (이벤트)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/56ff6a6973c1> ;
+    maple:patchDate "2026-03-19"^^xsd:date ;
+    maple:patchVersion "1.2.413" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/799> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.413 업데이트 안내 (컨텐츠, 개선사항 및 오류수정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/60443c106f68> ;
+    maple:patchDate "2026-03-19"^^xsd:date ;
+    maple:patchVersion "1.2.413" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/800> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.413(4) 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/f5fba579c95c> ;
+    maple:patchDate "2026-03-24"^^xsd:date ;
+    maple:patchVersion "1.2.413(4)" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/801> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.414 업데이트 안내 (공용 코어, 스킬 조정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/860b04c59427> ;
+    maple:patchDate "2026-04-16"^^xsd:date ;
+    maple:patchVersion "1.2.414" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/802> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.414 업데이트 안내 (이벤트, 컨텐츠, 개선사항 및 오류 수정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/95f49d5a5446> ;
+    maple:patchDate "2026-04-16"^^xsd:date ;
+    maple:patchVersion "1.2.414" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/803> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.414(3) 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/a42b79ff1394> ;
+    maple:patchDate "2026-04-21"^^xsd:date ;
+    maple:patchVersion "1.2.414(3)" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/804> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.415 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/c5612da2be1e> ;
+    maple:patchDate "2026-05-14"^^xsd:date ;
+    maple:patchVersion "1.2.415" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/805> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.416 업데이트 안내 (이벤트)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/a8eaedb97602> ;
+    maple:patchDate "2026-06-18"^^xsd:date ;
+    maple:patchVersion "1.2.416" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/806> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.416 업데이트 안내 (컨텐츠, 개선사항 및 오류 수정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/4959f7b397cf> ;
+    maple:patchDate "2026-06-18"^^xsd:date ;
+    maple:patchVersion "1.2.416" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/807> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.416 업데이트 안내 (신규 직업 레테)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/4f58eaa2ac03> ;
+    maple:patchDate "2026-06-18"^^xsd:date ;
+    maple:patchVersion "1.2.416" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/808> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.417 업데이트 안내 (컨텐츠, 개선사항 및 오류 수정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/cd601c2007bd> ;
+    maple:patchDate "2026-07-23"^^xsd:date ;
+    maple:patchVersion "1.2.417" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/809> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.417 업데이트 안내 (신규 HEXA 스킬 및 개선사항)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/e0802f3038e1> ;
+    maple:patchDate "2026-07-23"^^xsd:date ;
+    maple:patchVersion "1.2.417" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/810> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.417(3) 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/23a6d4072018> ;
+    maple:patchDate "2026-07-24"^^xsd:date ;
+    maple:patchVersion "1.2.417(3)" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/811> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.418 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/da04389c7784> ;
+    maple:patchDate "2026-08-20"^^xsd:date ;
+    maple:patchVersion "1.2.418" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/812> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.419 업데이트 안내 (스킬 조정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/fb8cd896ba03> ;
+    maple:patchDate "2026-09-17"^^xsd:date ;
+    maple:patchVersion "1.2.419" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/813> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.419 업데이트 안내 (이벤트, 컨텐츠, 개선사항 및 오류 수정)"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/f9d72677f7e9> ;
+    maple:patchDate "2026-09-17"^^xsd:date ;
+    maple:patchVersion "1.2.419" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/814> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.419(5) 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/1a2607856620> ;
+    maple:patchDate "2026-09-22"^^xsd:date ;
+    maple:patchVersion "1.2.419(5)" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/patch/815> a maple:Patch ;
+    rdfs:label "클라이언트 1.2.420 업데이트 안내"@ko ;
+    prov:wasDerivedFrom <https://example.org/maple/id/source/1bb83feec0cb> ;
+    maple:patchDate "2026-10-22"^^xsd:date ;
+    maple:patchVersion "1.2.420" ;
+    maple:sourceTier maple:official .
+
+<https://example.org/maple/id/source/1cb77f8406eb> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[점검완료] 10/27(화) 메이플스토리 홈페이지 점검 안내(09:00~09:30)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150355"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/207a995bc0bd> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "10/16(금) 버그악용/불법프로그램 신고 보상 지급 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150312"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/2a832a02cb17> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "넥슨 히어로 2026년 기부 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150350"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/2f3e82696c6f> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "Tver.1.2.206 우수테스터 발표 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150280"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/359f20082ae4> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "(완료) 탐험 코인샵 내 펫장비 교환권 판매 임시 중단 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150385"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/3b33ea22b2af> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[패치완료] 10/23(금) ver1.2.420 마이너버전(3) 패치 (13:29 적용)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150352"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/43085afaf0e0> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "(수정) 10/22(목) 넥슨 정기점검 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150328"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/4bbba3a4b991> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[패치완료] 10/22(목) ver1.2.420 마이너버전(2) 패치 (15:52 적용)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150347"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/635f2e3d1d2c> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[패치완료] 10/22(목) ver1.2.420 클라이언트 패치(4:00~10:00)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150333"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/6f71b67bc043> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "11/12(목) 넥슨 정기점검 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150428"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/776534cc8c89> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "11/5(목) 운영정책 위반 단속 결과 및 클린 캠페인 결과 발표" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150413"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/79d083c0030e> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "Tver.1.2.207 우수테스터 발표 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150412"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/96c428add77f> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "(수정)10/29(목) 넥슨 정기점검 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150368"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/abdef177905a> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[점검완료] 11/2(월) 전체 월드 채널 점검 (18:50~19:40)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150389"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/c88231938106> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "(추가) 일부 월드로의 월드 리프 조기 종료 사전 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150346"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/cb2c240d07df> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "월드 리프 지연 현상 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150343"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/ccf1e6373ca7> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[종료] 테스트월드 운영기간 안내(2026.10.15~2026.10.22)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150305"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/d5420a4b3c17> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "11/6(금) 버그악용/불법프로그램 신고 보상 지급 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150418"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/ecb498b8fe04> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "11/19(목) 메이플스토리 운영정책 변경 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150317"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/ee263499104c> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "10/15(목) 넥슨 정기점검 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice/detail?notice_id=150284"^^xsd:anyURI .
+
+<https://example.org/maple/id/interval/event-1334> a maple:TimeInterval ;
+    maple:endDate "2026-12-16T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-06-18T12:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1381> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1382> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1383> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1384> a maple:TimeInterval ;
+    maple:endDate "2026-12-16T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1387> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1388> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1389> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-09-17T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1398> a maple:TimeInterval ;
+    maple:endDate "2026-11-11T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-10-22T00:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1400> a maple:TimeInterval ;
+    maple:endDate "2026-11-19T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-10-23T00:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1402> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-10-22T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1403> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-10-22T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/interval/event-1404> a maple:TimeInterval ;
+    maple:endDate "2026-11-18T23:59:00+09:00"^^xsd:dateTime ;
+    maple:startDate "2026-10-22T10:00:00+09:00"^^xsd:dateTime .
+
+<https://example.org/maple/id/source/0fb9e14440c5> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.411(4) 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=796"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/1a2607856620> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.419(5) 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=814"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/1bb83feec0cb> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.420 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=815"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/1ff3d462959b> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "퍼스널 버닝" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1389"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/23a6d4072018> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.417(3) 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=810"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/265903910212> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[사냥 이벤트] - 탐정 예티의 수상한 돋보기" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1403"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/31f58f10b9aa> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[성장 이벤트] - 어센던트 링크" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1387"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/4959f7b397cf> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.416 업데이트 안내 (컨텐츠, 개선사항 및 오류 수정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=806"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/4f58eaa2ac03> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.416 업데이트 안내 (신규 직업 레테)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=807"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/521ce8743c57> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "하이퍼 버닝 부스터를 드려요!" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1384"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/56ff6a6973c1> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.413 업데이트 안내 (이벤트)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=798"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/595f890aaca5> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "프리미엄PC방 접속보상 이벤트" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1400"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/59d1dbce6780> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[이벤트 스킬] - 아르고 호의 가호" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1383"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/60443c106f68> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.413 업데이트 안내 (컨텐츠, 개선사항 및 오류수정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=799"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/6631b39bd97f> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "퍼스널 코인샵" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1381"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/6a5ec55c839f> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[출석 이벤트] - 프로텍트 아르고" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1388"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/79f733dbcaa7> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "메이플 이스케이프: 사라진 네미" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1404"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/860b04c59427> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.414 업데이트 안내 (공용 코어, 스킬 조정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=801"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/8e85c344e22f> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "모멘텀 패스 PLUS" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1402"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/94bfdc0b0d95> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "VIP 사우나" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1334"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/95f49d5a5446> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.414 업데이트 안내 (이벤트, 컨텐츠, 개선사항 및 오류 수정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=802"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/a42b79ff1394> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.414(3) 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=803"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/a8eaedb97602> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.416 업데이트 안내 (이벤트)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=805"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/ac995ee3581c> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "제 2회 금손 어워즈" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1398"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/ae9b646f6d3e> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.412 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=797"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/c5612da2be1e> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.415 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=804"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/cd601c2007bd> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.417 업데이트 안내 (컨텐츠, 개선사항 및 오류 수정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=808"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/da04389c7784> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.418 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=811"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/e0802f3038e1> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.417 업데이트 안내 (신규 HEXA 스킬 및 개선사항)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=809"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/e751c6dfd488> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "[이벤트 샵] - 아르고 주화 상점" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-event/detail?notice_id=1382"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/f5fba579c95c> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.413(4) 업데이트 안내" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=800"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/f9d72677f7e9> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.419 업데이트 안내 (이벤트, 컨텐츠, 개선사항 및 오류 수정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=813"^^xsd:anyURI .
+
+<https://example.org/maple/id/source/fb8cd896ba03> a maple:SourceDocument ;
+    prov:generatedAtTime "2026-11-10T23:06:09+09:00"^^xsd:dateTime ;
+    maple:docTitle "클라이언트 1.2.419 업데이트 안내 (스킬 조정)" ;
+    maple:sourceTier maple:official ;
+    maple:url "https://open.api.nexon.com/maplestory/v1/notice-update/detail?notice_id=812"^^xsd:anyURI .
+

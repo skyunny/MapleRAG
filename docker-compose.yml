@@ -1,0 +1,17 @@
+﻿# Neo4j + n10s(neosemantics). 비밀번호는 .env 의 NEO4J_PASSWORD 를 사용합니다.
+services:
+  neo4j:
+    # 이미지 태그는 .env 의 NEO4J_IMAGE 로 바꿀 수 있음 (n10s 호환 버전 확인 필요)
+    image: ${NEO4J_IMAGE:-neo4j:5.26}
+    container_name: maplerag-neo4j
+    ports:
+      - "7475:7474"   # 브라우저 (호스트 7475: 기존 neo4j 컨테이너와 충돌 회피)
+      - "7688:7687"   # bolt (호스트 7688)
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:?.env 에 NEO4J_PASSWORD 를 설정하세요}
+      # n10s 는 자동 설치 목록에 없어 jar 를 /plugins 에 직접 마운트 (버전은 Neo4j 와 맞춰야 함)
+      NEO4J_dbms_security_procedures_unrestricted: "n10s.*"
+      NEO4J_dbms_security_procedures_allowlist: "n10s.*"
+    volumes:
+      - ./data/neo4j/data:/data
+      - ./data/neo4j/plugins:/plugins   # 내려받은 n10s jar 재사용

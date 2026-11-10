@@ -1,0 +1,92 @@
+@prefix maple: <https://example.org/maple#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL 셰이프 초안 v0.1 — 필수 속성·타입·값 범위 검증 (온톨로지 승인 후 확정)
+
+maple:GameEntityShape a sh:NodeShape ;
+    sh:targetClass maple:GameEntity ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 1 ;
+                  sh:or ( [ sh:datatype rdf:langString ] [ sh:datatype xsd:string ] ) ;   # @ko 라벨은 langString
+                  sh:message "rdfs:label(대표 이름)이 필요합니다" ] ;
+    sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class maple:SourceDocument ;
+                  sh:message "출처(prov:wasDerivedFrom → SourceDocument)가 필요합니다" ] ;
+    sh:property [ sh:path maple:sourceTier ; sh:minCount 1 ; sh:class maple:SourceTier ;
+                  sh:message "source_tier 가 필요합니다" ] .
+
+maple:SourceDocumentShape a sh:NodeShape ;
+    sh:targetClass maple:SourceDocument ;
+    sh:property [ sh:path maple:url ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:anyURI ] ;
+    sh:property [ sh:path maple:sourceTier ; sh:minCount 1 ; sh:maxCount 1 ; sh:class maple:SourceTier ] ;
+    sh:property [ sh:path prov:generatedAtTime ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ;
+                  sh:message "수집 시각(prov:generatedAtTime)이 필요합니다" ] .
+
+maple:FactShape a sh:NodeShape ;
+    sh:targetClass maple:Fact ;
+    sh:property [ sh:path rdf:subject ; sh:minCount 1 ; sh:maxCount 1 ; sh:class maple:GameEntity ] ;
+    sh:property [ sh:path rdf:predicate ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class maple:SourceDocument ] ;
+    sh:property [ sh:path maple:sourceTier ; sh:minCount 1 ; sh:maxCount 1 ; sh:class maple:SourceTier ] ;
+    sh:property [ sh:path prov:generatedAtTime ; sh:minCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:property [ sh:path maple:validFrom ; sh:maxCount 1 ; sh:datatype xsd:date ;
+                  sh:lessThanOrEquals maple:validTo ;
+                  sh:message "validFrom 은 validTo 보다 늦을 수 없습니다" ] ;
+    sh:property [ sh:path maple:validTo ; sh:maxCount 1 ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path maple:extractedBy ; sh:in ( "rule" "llm" "manual" ) ] ;
+    # 객체값(rdf:object)과 값(maple:value) 중 하나 이상 (예: 장비 X 의 별 수=22 는 둘 다 가짐)
+    sh:or ( [ sh:path rdf:object ; sh:minCount 1 ]
+            [ sh:path maple:value ; sh:minCount 1 ] ) .
+
+# LLM 추출 사실은 근거 문장(evidence) 필수 (rule 기반은 면제)
+maple:LlmFactShape a sh:NodeShape ;
+    sh:targetClass maple:Fact ;
+    sh:message "추출 방식이 rule 이 아니면 evidence(근거 문장)가 필요합니다" ;
+    sh:or ( [ sh:property [ sh:path maple:extractedBy ; sh:hasValue "rule" ] ]
+            [ sh:property [ sh:path maple:evidence ; sh:minCount 1 ] ] ) .
+
+maple:PatchShape a sh:NodeShape ;
+    sh:targetClass maple:Patch ;
+    sh:property [ sh:path maple:patchDate ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path maple:patchVersion ; sh:minCount 1 ; sh:datatype xsd:string ] .
+
+maple:PatchChangeShape a sh:NodeShape ;
+    sh:targetClass maple:PatchChange ;
+    sh:property [ sh:path maple:changes ; sh:minCount 1 ; sh:maxCount 1 ; sh:class maple:GameEntity ] ;
+    sh:property [ sh:path maple:changeType ; sh:minCount 1 ; sh:maxCount 1 ; sh:class maple:ChangeType ] ;
+    sh:property [ sh:path maple:inPatch ; sh:minCount 1 ; sh:maxCount 1 ; sh:class maple:Patch ] .
+
+maple:EventShape a sh:NodeShape ;
+    sh:targetClass maple:Event ;
+    # during 은 API 이벤트에는 있으나 패치노트 본문에서 추출한 이벤트에는 기간 정보가 없어 필수(minCount)에서 제외 (제안: 한계로 기록)
+    sh:property [ sh:path maple:during ; sh:maxCount 1 ; sh:class maple:TimeInterval ] .
+
+maple:TimeIntervalShape a sh:NodeShape ;
+    sh:targetClass maple:TimeInterval ;
+    sh:property [ sh:path maple:startDate ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ;
+                  sh:lessThanOrEquals maple:endDate ;
+                  sh:message "시작이 종료보다 늦을 수 없습니다" ] ;
+    sh:property [ sh:path maple:endDate ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] .
+
+maple:ProbabilityShape a sh:NodeShape ;
+    sh:targetClass maple:Probability ;
+    sh:property [ sh:path maple:probability ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ;
+                  sh:minInclusive 0 ; sh:maxInclusive 1 ; sh:message "확률은 0~1 범위여야 합니다" ] ;
+    sh:property [ sh:path maple:probabilityFor ; sh:minCount 1 ; sh:class maple:Item ] ;
+    sh:property [ sh:path maple:outcome ; sh:minCount 1 ; sh:datatype xsd:string ] .
+
+maple:StarforceProbabilityShape a sh:NodeShape ;
+    sh:targetClass maple:StarforceProbability ;
+    sh:property [ sh:path maple:starLevel ; sh:minCount 1 ; sh:datatype xsd:integer ;
+                  sh:minInclusive 0 ; sh:maxInclusive 30 ] .
+
+maple:JobShape a sh:NodeShape ;
+    sh:targetClass maple:Job ;
+    sh:property [ sh:path maple:hasSkill ; sh:class maple:Skill ] .
+
+maple:CharacterShape a sh:NodeShape ;
+    sh:targetClass maple:Character ;
+    sh:property [ sh:path maple:ocid ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path maple:level ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 1 ; sh:maxInclusive 300 ] .

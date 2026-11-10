@@ -1,0 +1,134 @@
+@prefix maple: <https://example.org/maple#> .
+@prefix mid:   <https://example.org/maple/id/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+# =====================================================================
+# 메이플스토리 온톨로지 (초안 v0.1) — 사용자 승인 전
+#
+# URI 규칙 (인스턴스):  mid:{타입}/{안정ID}
+#   1순위 공식 ID   예) mid:character/{ocid}, mid:item/1032000
+#   2순위 영문 슬러그 예) mid:boss/lucid
+#   3순위 이름 해시   예) mid:monster/h-3fa91c02b7  (정규화한 한글명의 SHA-1 앞 10자리)
+#   한글 이름은 URI에 쓰지 않고 rdfs:label 로 둔다. 별칭은 skos:altLabel.
+# =====================================================================
+
+<https://example.org/maple> a owl:Ontology ;
+    rdfs:label "MapleStory Ontology"@en , "메이플스토리 온톨로지"@ko ;
+    owl:versionInfo "0.1" .
+
+# ------------------------------ 클래스 ------------------------------
+maple:GameEntity a owl:Class ; rdfs:label "게임 개체"@ko ;
+    rdfs:comment "출처를 가진 모든 게임 개체의 상위 클래스"@ko .
+
+maple:Job        a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "직업"@ko .
+maple:Skill      a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "스킬"@ko .
+maple:Item       a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "아이템"@ko .
+maple:Equipment  a owl:Class ; rdfs:subClassOf maple:Item ; rdfs:label "장비"@ko .
+maple:Consumable a owl:Class ; rdfs:subClassOf maple:Item ; rdfs:label "소비 아이템"@ko .
+maple:Monster    a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "몬스터"@ko .
+maple:Boss       a owl:Class ; rdfs:subClassOf maple:Monster ; rdfs:label "보스"@ko .
+maple:Map        a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "맵"@ko .
+maple:Quest      a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "퀘스트"@ko .
+maple:NPC        a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "NPC"@ko .
+maple:Patch      a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "패치"@ko ;
+    rdfs:comment "공식 패치노트 1건. 식별자는 날짜+제목 기반(버전 번호가 없을 수 있음)"@ko .
+maple:Event      a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "이벤트"@ko .
+maple:TimeInterval a owl:Class ; rdfs:label "기간"@ko .
+maple:Character  a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "캐릭터"@ko ;
+    rdfs:comment "Open API 조회 결과. 개인정보 보호를 위해 영구 적재하지 않고 임시 그래프에서만 사용(계획)"@ko .
+maple:Guild      a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "길드"@ko .
+maple:Union      a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "유니온"@ko .
+
+maple:Probability a owl:Class ; rdfs:subClassOf maple:GameEntity ; rdfs:label "확률 항목"@ko ;
+    rdfs:comment "확률표의 한 행 (예: 스타포스 17→18성 성공 확률)"@ko .
+maple:StarforceProbability   a owl:Class ; rdfs:subClassOf maple:Probability ; rdfs:label "스타포스 확률"@ko .
+maple:CubeProbability        a owl:Class ; rdfs:subClassOf maple:Probability ; rdfs:label "큐브 확률"@ko .
+maple:EnhancementProbability a owl:Class ; rdfs:subClassOf maple:Probability ; rdfs:label "기타 강화 확률"@ko .
+
+# --- 사실(Fact): 시간·출처·근거를 붙이는 reification 노드 (제안 D1) ---
+maple:Fact a owl:Class ; rdfs:subClassOf rdf:Statement ; rdfs:label "사실"@ko ;
+    rdfs:comment "직접 관계(엣지)와 1:1로 대응하는 주장 기록. 유효기간·패치·출처·근거를 담는다."@ko .
+maple:PatchChange a owl:Class ; rdfs:subClassOf maple:Fact ; rdfs:label "패치 변경"@ko ;
+    rdfs:comment "패치가 개체에 가한 변경 1건 (종류, 속성, 변경 전/후 값)"@ko .
+maple:ChangeType a owl:Class ; rdfs:label "변경 종류"@ko .
+maple:Buff     a maple:ChangeType ; rdfs:label "상향(버프)"@ko .
+maple:Nerf     a maple:ChangeType ; rdfs:label "하향(너프)"@ko .
+maple:Added    a maple:ChangeType ; rdfs:label "신규"@ko .
+maple:Removed  a maple:ChangeType ; rdfs:label "삭제"@ko .
+maple:Adjusted a maple:ChangeType ; rdfs:label "조정(방향 불명)"@ko .
+
+# --- 출처 ---
+maple:SourceDocument a owl:Class ; rdfs:subClassOf prov:Entity ; rdfs:label "출처 문서"@ko ;
+    rdfs:comment "수집한 원본 1건 (URL 또는 API 엔드포인트)"@ko .
+maple:SourceTier a owl:Class ; rdfs:label "출처 신뢰도 등급"@ko .
+maple:official    a maple:SourceTier ; rdfs:label "official" ;     maple:rank 3 .
+maple:userCurated a maple:SourceTier ; rdfs:label "user-curated" ; maple:rank 2 .
+maple:community   a maple:SourceTier ; rdfs:label "community" ;    maple:rank 1 .
+maple:rank a owl:DatatypeProperty ; rdfs:domain maple:SourceTier ; rdfs:range xsd:integer ;
+    rdfs:comment "충돌 시 높은 rank 우선(공식 우선)"@ko .
+
+# ------------------------------ 객체 속성 (관계) ------------------------------
+maple:hasSkill    a owl:ObjectProperty ; rdfs:domain maple:Job ; rdfs:range maple:Skill ; rdfs:label "스킬 보유"@ko .
+maple:dropsItem   a owl:ObjectProperty ; rdfs:domain maple:Monster ; rdfs:range maple:Item ; rdfs:label "드롭 아이템"@ko .
+maple:appearsIn   a owl:ObjectProperty ; rdfs:domain maple:Monster ; rdfs:range maple:Map ; rdfs:label "출현 맵"@ko .
+maple:rewards     a owl:ObjectProperty ; rdfs:range maple:Item ; rdfs:label "보상"@ko ;
+    rdfs:comment "Quest 또는 Event 가 Item 을 보상으로 줌"@ko .
+maple:givenBy     a owl:ObjectProperty ; rdfs:domain maple:Quest ; rdfs:range maple:NPC ; rdfs:label "의뢰 NPC"@ko .
+maple:usableBy    a owl:ObjectProperty ; rdfs:domain maple:Equipment ; rdfs:range maple:Job ; rdfs:label "착용 직업"@ko .
+maple:during      a owl:ObjectProperty ; rdfs:domain maple:Event ; rdfs:range maple:TimeInterval ; rdfs:label "진행 기간"@ko .
+maple:announcedIn a owl:ObjectProperty ; rdfs:domain maple:Event ; rdfs:range maple:Patch ; rdfs:label "공지 패치"@ko .
+# 패치 변경
+maple:hasChange   a owl:ObjectProperty ; rdfs:domain maple:Patch ; rdfs:range maple:PatchChange ; rdfs:label "변경 사항"@ko .
+maple:changes     a owl:ObjectProperty ; rdfs:domain maple:PatchChange ; rdfs:range maple:GameEntity ; rdfs:label "변경 대상"@ko .
+maple:changeType  a owl:ObjectProperty ; rdfs:domain maple:PatchChange ; rdfs:range maple:ChangeType ; rdfs:label "변경 종류"@ko .
+# 캐릭터
+maple:hasJob      a owl:ObjectProperty ; rdfs:domain maple:Character ; rdfs:range maple:Job ; rdfs:label "직업"@ko .
+maple:equips      a owl:ObjectProperty ; rdfs:domain maple:Character ; rdfs:range maple:Item ; rdfs:label "착용 장비"@ko .
+maple:memberOf    a owl:ObjectProperty ; rdfs:domain maple:Character ; rdfs:range maple:Guild ; rdfs:label "소속 길드"@ko .
+maple:inUnion     a owl:ObjectProperty ; rdfs:domain maple:Character ; rdfs:range maple:Union ; rdfs:label "유니온"@ko .
+# 확률
+maple:probabilityFor a owl:ObjectProperty ; rdfs:domain maple:Probability ; rdfs:range maple:Item ;
+    rdfs:label "확률 대상(장비·큐브 등)"@ko .
+# 사실(Fact) 연결
+maple:aboutFact   a owl:ObjectProperty ; rdfs:range maple:Fact ; rdfs:label "관련 사실"@ko ;
+    rdfs:comment "주체 개체 → 그 개체에 대한 Fact"@ko .
+maple:inPatch     a owl:ObjectProperty ; rdfs:domain maple:Fact ; rdfs:range maple:Patch ; rdfs:label "적용 패치"@ko .
+maple:fromPatch   a owl:ObjectProperty ; rdfs:subPropertyOf maple:inPatch ; rdfs:label "유효 시작 패치"@ko .
+maple:untilPatch  a owl:ObjectProperty ; rdfs:domain maple:Fact ; rdfs:range maple:Patch ; rdfs:label "유효 종료 패치"@ko .
+
+# ------------------------------ 데이터 속성 ------------------------------
+maple:level        a owl:DatatypeProperty ; rdfs:range xsd:integer ; rdfs:label "레벨"@ko .
+maple:worldName    a owl:DatatypeProperty ; rdfs:domain maple:Character ; rdfs:range xsd:string ; rdfs:label "월드"@ko .
+maple:ocid         a owl:DatatypeProperty ; rdfs:domain maple:Character ; rdfs:range xsd:string ; rdfs:label "식별자(ocid)"@ko .
+maple:difficulty   a owl:DatatypeProperty ; rdfs:domain maple:Boss ; rdfs:range xsd:string ; rdfs:label "난이도"@ko .
+maple:pattern      a owl:DatatypeProperty ; rdfs:domain maple:Boss ; rdfs:range xsd:string ; rdfs:label "패턴 설명"@ko .
+maple:patchVersion a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "패치 버전/식별자"@ko .
+maple:patchDate    a owl:DatatypeProperty ; rdfs:domain maple:Patch ; rdfs:range xsd:date ; rdfs:label "패치 날짜"@ko .
+maple:startDate    a owl:DatatypeProperty ; rdfs:domain maple:TimeInterval ; rdfs:range xsd:dateTime ; rdfs:label "시작"@ko .
+maple:endDate      a owl:DatatypeProperty ; rdfs:domain maple:TimeInterval ; rdfs:range xsd:dateTime ; rdfs:label "종료"@ko .
+# 확률
+maple:starLevel    a owl:DatatypeProperty ; rdfs:domain maple:StarforceProbability ; rdfs:range xsd:integer ; rdfs:label "현재 별 수"@ko .
+maple:outcome      a owl:DatatypeProperty ; rdfs:domain maple:Probability ; rdfs:range xsd:string ; rdfs:label "결과(성공/실패/파괴/옵션 등)"@ko .
+maple:grade        a owl:DatatypeProperty ; rdfs:domain maple:CubeProbability ; rdfs:range xsd:string ; rdfs:label "잠재 등급"@ko .
+maple:probability  a owl:DatatypeProperty ; rdfs:domain maple:Probability ; rdfs:range xsd:decimal ; rdfs:label "확률(0~1)"@ko .
+# Fact / PatchChange
+maple:attribute    a owl:DatatypeProperty ; rdfs:domain maple:Fact ; rdfs:range xsd:string ; rdfs:label "속성명(수치형 사실)"@ko .
+maple:value        a owl:DatatypeProperty ; rdfs:domain maple:Fact ; rdfs:label "값(수치/문자)"@ko .
+maple:beforeValue  a owl:DatatypeProperty ; rdfs:domain maple:PatchChange ; rdfs:label "변경 전 값"@ko .
+maple:afterValue   a owl:DatatypeProperty ; rdfs:domain maple:PatchChange ; rdfs:label "변경 후 값"@ko .
+maple:validFrom    a owl:DatatypeProperty ; rdfs:domain maple:Fact ; rdfs:range xsd:date ; rdfs:label "유효 시작일"@ko .
+maple:validTo      a owl:DatatypeProperty ; rdfs:domain maple:Fact ; rdfs:range xsd:date ; rdfs:label "유효 종료일(없으면 현재 유효)"@ko .
+maple:evidence     a owl:DatatypeProperty ; rdfs:domain maple:Fact ; rdfs:range xsd:string ; rdfs:label "추출 근거 문장"@ko .
+maple:extractedBy  a owl:DatatypeProperty ; rdfs:domain maple:Fact ; rdfs:range xsd:string ; rdfs:label "추출 방식(rule/llm/manual)"@ko .
+# 출처
+maple:url          a owl:DatatypeProperty ; rdfs:domain maple:SourceDocument ; rdfs:range xsd:anyURI ; rdfs:label "출처 URL/엔드포인트"@ko .
+maple:docTitle     a owl:DatatypeProperty ; rdfs:domain maple:SourceDocument ; rdfs:range xsd:string ; rdfs:label "문서 제목"@ko .
+maple:sourceTier   a owl:ObjectProperty ; rdfs:range maple:SourceTier ; rdfs:label "출처 신뢰도"@ko ;
+    rdfs:comment "GameEntity, Fact, SourceDocument 모두에 기록"@ko .
+# prov:wasDerivedFrom (→ SourceDocument), prov:generatedAtTime (xsd:dateTime) 는 prov 어휘 그대로 사용
+# skos:altLabel = 별칭/약어/영문명/구명칭, rdfs:label = 대표 이름
