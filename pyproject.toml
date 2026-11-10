@@ -16,10 +16,12 @@ dependencies = [
     "pyshacl>=0.40.2",
     "python-dotenv>=1.2.4",
     "rdflib>=7.6.0",
+    "streamlit>=1.67.0",
 ]
 
 [project.scripts]
 maplerag = "maplerag:main"
+maplerag-ui = "maplerag.ui:main"
 
 [build-system]
 requires = ["uv_build>=0.12.13,<0.13.0"]

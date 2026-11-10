@@ -10,7 +10,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ORDER = ["check_ontology", "check_ingest", "check_rule_mapper", "check_extractor", "check_normalizer", "check_guard",
-         "check_eval_metrics", "check_character", "check_rag_offline", "check_notebooks"]
+         "check_eval_metrics", "check_character", "check_rag_offline", "check_notebooks", "check_ui"]
 env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
 rows, bad = [], 0
 for name in ORDER:
